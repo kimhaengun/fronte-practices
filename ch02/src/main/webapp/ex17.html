@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>태그 선택자</title>
+</head>
+<style>
+#flex{
+	text-align: center;
+	margin-top: 100px;
+}
+input {
+
+	border: 3px solid red;
+	outline : none;
+}
+
+input .focused{
+
+	background-color: gray;
+}
+
+</style>
+<script type="text/javascript">
+function onFocus(el,focused){
+	console.log(el);
+ 	el.className="focused";
+}
+</script>
+<body>
+<form>
+<div class = "" id="flex">
+	<input class="" id="id" type="text" placeholder="id를 입력해주세요" onfocus='onFocus(this,"focused");' onblur='onFocus(this,"");'/>
+	<br/>
+	<br/>
+	<input class="" type="password" placeholder="password를 입력해주세요">
+</div>
+</form>
+</body>
+</html>
