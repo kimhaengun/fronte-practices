@@ -3,6 +3,21 @@
     기본타입(primitive type)
 */
 
+/*
+    자바스크립트의 객체를 구분하는 방벙
+    1.내장(Built-In,Native, Engine) 객체
+      자바스크립트 엔진안에 미리 내장되어 있는 객체
+      Number, Boolean, Date, RegExp .... : 생성자 함수
+      ParsInt, setTimeout, .... : 일반 함수
+
+    2.호스트 객체
+      자바스크립트 엔진이 임베디드된 환경(호스트)의 객체(자바스크립트 접근 가능)
+      호스트 환경이 브라우저라면 : document, location, XmlHttpRequest, window, ....
+      호스트 환경이 노드(Node.js) 라면 : os, http, fs, path 
+    3.사용자 객체
+      자바스크립트 엔진이 실행되면서 생성되는 객체들...
+*/
+
 console.log("=======================원시타입(Primitive Type)========================");
 
 var u = undefined;  //var u 와 동일하다 -> 값이 정의되지 않은 상태
@@ -54,3 +69,13 @@ var f2 = function(a,b){
 }
 console.log("f2 : "+typeof(f2)); //function
 
+console.log("=======================원시타입과 원시 타입을 wrapper 객체는 구분없이 사용할 수 있다.========================");
+console.log(i+i2);
+console.log(s+s2);
+
+//원시 타입에 메소드가 호출 될 때 ,
+//임시 Wrapper 객체가 생성되어 메소드 호출이 일어난 뒤 사라진다.(유사 객체)
+
+console.log("=======================원시타입도 메소드 호출이 가능하다.========================");
+console.log(b.valueOf());
+console.log(b2.valueOf());
