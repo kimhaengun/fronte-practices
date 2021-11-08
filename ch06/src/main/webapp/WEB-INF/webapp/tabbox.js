@@ -11,7 +11,6 @@ var tabBox = {
 	//select
 	this.className = "selected";
 	},
-
 	onWindowLoad:function(){
 			console.log("DOM loaded!");
 			var divTabBox = document.getElementsByClassName("tab-box")[0];
