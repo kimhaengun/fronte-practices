@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+window.addEventListener("load",function(){
+		
+		//1. Id로 가져오기
+		var header01 = document.getElementById('header-01');
+		var header02 = document.getElementById('header-02');
+		//2. Tag Name으로 가져오기
+		var h4s = document.getElementsByTagName('h4');
+
+		//3. Class Name 가져오기
+		var h5s = document.getElementsByClassName('header');
+		//4. Css selector
+		var header7 = document.querySelector("#header-07");
+		var h8s = document.querySelectorAll(".header2");
+		
+		setTimeout(function(){
+			header01.innerText +='by getElementById()';
+			header02.innerText +='by getElementById()';
+			
+			h4s[0].innerText += 'by getElementById()';
+			h4s[1].innerText += 'by getElementById()';
+			
+			h5s[0].innerText += 'by getElementById()';
+			h5s[1].innerText += 'by getElementById()';
+			
+			header7.innerText += 'by getElementById()';
+			h8s[0].innerText += 'by getElementById()';
+			h8s[1].innerText += 'by getElementById()';
+			
+		},2000);
+});
+
+ </script>
+</head>
+<body>
+	<h1 id = "h">DOM(Document Object Model)</h1>
+	<h2>4. HTML Element 가져오기</h2>
+
+	<h3 id="header-01">Header 01</h3>
+	<h3 id="header-02">Header 02</h3>
+	
+	<h4>header 03</h4>
+	<h4>header 04</h4>
+
+	<h4 class="header">header 05</h4>
+	<h4 class="header">header 06</h4>
+
+	<h4 class="header2" id="header-07">header 07</h4>
+	<h4 class="header2" id="header-08">header 08</h4>			
+</body>
+</html>
