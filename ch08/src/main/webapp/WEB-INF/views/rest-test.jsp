@@ -11,27 +11,69 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 $(function(){
-	
-	$("button").click(function(){
+
+	$("#create").click(function(){
+		var vo = {
+				name:"뚤리",
+				password: "1234",
+				email: "dooly@naer.com",
+				gender: "male"
+		};
 		$.ajax({
-			url: "${pageContext.request.contextPath}/api/post02",
-			async: true,
+			url: "${pageContext.request.contextPath}/api/user",
 			type: 'post',    //요청 method
 			dataType: 'json', //받을 포맷
 			contentType: 'application/json',
 			data: JSON.stringify(vo),
 			success: function(response){
 				console.log(response);
-
-				var html = "";
-				html+=("<h2>"+response.data.no+"</h2>");
-				html+=("<h2>"+response.data.name+"</h2>");
-				html+=("<h2>"+response.data.message+"</h2>");
-				
-				$("#data").append(html);
+			}
+		});
+	});	
+	$("#read").click(function(){
+		$.ajax({
+			url: "${pageContext.request.contextPath}/api/user/10",
+			type: 'get',    //요청 method
+			dataType: 'json', //받을 포맷
+			contentType: 'application/json',
+			success: function(response){
+				console.log(response);
 			}
 		});
 	});
+
+	$("#update").click(function(){
+		var vo = {
+				name:"뚤랴update",
+				password: "1234",
+				email: "dooly@naer.com",
+				gender: "male"
+		};
+		$.ajax({
+			url: "${pageContext.request.contextPath}/api/user/10",
+			type: 'put',    //요청 method
+			dataType: 'json', //받을 포맷
+			contentType: 'application/x-www-form-urlencoded',
+			data: JSON.stringify(vo),
+			success: function(response){
+				console.log(response);
+			}
+		});
+	});
+	
+	$("#delete").click(function(){
+		$.ajax({
+			url: "${pageContext.request.contextPath}/api/user/10",
+			type: 'delete',    //요청 method
+			dataType: 'json', //받을 포맷
+			contentType: 'application/x-www-form-urlencoded',
+			data:"password=1234",
+			success: function(response){
+				console.log(response);
+			}
+		});
+	});
+	
 });
 </script>
 </head>
