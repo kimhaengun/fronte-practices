@@ -53,7 +53,7 @@ $(function(){
 			url: "${pageContext.request.contextPath}/api/user/10",
 			type: 'put',    //요청 method
 			dataType: 'json', //받을 포맷
-			contentType: 'application/x-www-form-urlencoded',
+			contentType: 'application/json',
 			data: JSON.stringify(vo),
 			success: function(response){
 				console.log(response);
