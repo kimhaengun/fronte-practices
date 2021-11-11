@@ -19,4 +19,9 @@ public class ApiController {
 		
 		return "html";
 	}
+	@RequestMapping("/xml")
+	public String xml() {
+		
+		return "xml";
+	}
 }
