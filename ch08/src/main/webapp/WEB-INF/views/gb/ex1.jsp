@@ -22,6 +22,9 @@ var render = function(vo) {
 	return html;
 }
 
+var listItemEJS = new EJS({
+	url: '${pageContext.request.contextPath }/ejs/listitem-template.ejs'
+});
 
 $(function(){
 	$("#add-form").submit(function(event){
@@ -46,12 +49,14 @@ $(function(){
 					console.error(response.message);
 					return
 				} 
-				var html = render(response.data);
+
+				// var html = render(response.data);
+				var html = listItemEJS.render(response.data);
 				$('#list-guestbook').prepend(html);
 				$("#add-form")[0].reset();
 			},
-			error: function(xhr, code, message) {
-				console.error(message);
+			error: function(xhr, status, error) {
+				console.error(status + ":" + error);
 			}
 		});
 	});
@@ -68,7 +73,7 @@ $(function(){
 			<input type="submit" value="보내기" />
 		</form>
 		<ul id="list-guestbook">
-
+		
 			<li data-no='2'><strong>지나가다가</strong>
 				<p>
 					별루입니다.<br> 비번:1234 -,.-
@@ -86,4 +91,4 @@ $(function(){
 		</ul>
 	</div>
 </body>
-</html> 
+</html>
